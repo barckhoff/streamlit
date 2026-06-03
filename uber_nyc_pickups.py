@@ -38,7 +38,7 @@ if st.checkbox('Show bar chart'):
 
 if st.checkbox('Show map'):
     # min: 0h, max: 23h, default: 17
-    hour_to_filter = st.slider('hour', 0, 23, hour_to_filter)
+    hour_to_filter = st.slider('hour', 0, 23, 17)
     filtered_data = data[data[DATE_COLUMN].dt.hour == hour_to_filter]
     st.subheader(f'Map of all pickups at {hour_to_filter}:00')
     st.map(filtered_data)
