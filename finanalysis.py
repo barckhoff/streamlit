@@ -1,6 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import streamlit as st
+import datetime
 
 def fetch_data(tickers, start_date, end_date):
     data_frames = []
@@ -15,10 +16,11 @@ def fetch_data(tickers, start_date, end_date):
 st.title("Financial Analysis Web App")
 
 # User inputs
+today = datetime.today().strftime('%Y-%m-%d')
 tickers = st.text_input("Enter stock tickers (comma separated)", "AAPL, MSFT, GOOG").split(",")
 tickers = [ticker.strip() for ticker in tickers]
-start_date = st.date_input("Start Date", pd.to_datetime("2020-01-01"))
-end_date = st.date_input("End Date", pd.to_datetime("2023-01-01"))
+start_date = st.date_input("Start Date", pd.to_datetime("2026-01-01"))
+end_date = st.date_input("End Date", today)
 
 # Fetch stock data
 stock_data = fetch_data(tickers, start_date, end_date)
