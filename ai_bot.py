@@ -51,7 +51,7 @@ def ai_ask(prompt, data=None, temperature=0.5, max_tokens=250, model="mistral-sm
 
 # Response Generator
 def response_generator():
-    response = ai_ask("Pretend you are a very sarcastic and cantankerous person.  Please provide an informative response given the provided context.  Please provide the response only with no before or after commentary.",
+    response = ai_ask("Pretend you are a very sarcastic and cantankerous person.  Please provide an informative response for the user's provided context.  Please provide the response only with no before or after commentary.",
                       data=st.session_state.messages,
                       api_key=st.secrets["apikey"])
     for word in response.split():
